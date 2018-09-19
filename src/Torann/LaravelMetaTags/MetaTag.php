@@ -1,5 +1,4 @@
 <?php
-
 namespace Torann\LaravelMetaTags;
 
 use Illuminate\Http\Request;
@@ -53,7 +52,7 @@ class MetaTag
      */
     private $twitter = [
         'card', 'site', 'title', 'description',
-        'creator', 'image:src', 'domain'
+        'creator', 'image', 'domain'
     ];
 
     /**
@@ -226,9 +225,9 @@ class MetaTag
         }
 
         // Set image
-        if (empty($html['image:src']) && $this->get('image')) {
-            $html['image:src'] = $this->createTag([
-                'name' => "twitter:image:src",
+        if (empty($html['image']) && $this->get('image')) {
+            $html['image'] = $this->createTag([
+                'name' => "twitter:image",
                 'content' => $this->get('image')
             ]);
         }
